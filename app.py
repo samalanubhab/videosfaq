@@ -47,7 +47,7 @@ def main():
     submit=st.button("Submit")
 
     if user_query!='Default' and submit:
-        D,I=vector_search([user_query],model,faiss_index,10)
+        D,I=vector_search([user_query],model,faiss_index,3)
 
         for id_ in I.flatten().tolist():
             st.write("Title of the video :",{data[id_]['title']})
