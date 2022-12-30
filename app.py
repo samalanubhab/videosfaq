@@ -54,7 +54,7 @@ def main():
             st.write("Matching text transcript :",data[id_]['text'])
             st.write("Video URL to click :",data[id_]['url']+'&t='+str(int(data[id_]['start'])))
             st.write('######################################################################')
-            st.video(data[id_]['url']+'&t='+str(int(data[id_]['start'])))
+            st.video(data[id_]['url'],start_time=int(data[id_]['start']))
             st.write('\n\n')
     else:
         st.write("Please enter your query or text in above box ")
