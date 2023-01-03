@@ -6,7 +6,7 @@ import streamlit as st
 from sentence_transformers import SentenceTransformer
 
 st.set_page_config(layout="wide")
-col1, col2, col3 = st.beta_columns([1,6,1])
+col1, col2, col3 = st.columns([1,8,1])
 
 with col1:
     st.image("https://i.imgflip.com/amucx.jpg")
