@@ -77,6 +77,20 @@ def main():
     
     
     user_query=st.text_area("Enter text", value="Default")
+    # Add css to make text bigger
+    st.markdown(
+    """
+    <style>
+    textarea {
+        font-size: 3rem !important;
+    }
+    input {
+        font-size: 3rem !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
     submit=st.button("Submit")
 
