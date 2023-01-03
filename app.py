@@ -5,6 +5,8 @@ import numpy as np
 import streamlit as st
 from sentence_transformers import SentenceTransformer
 
+st.set_page_config(layout="wide")
+
 @st.cache(allow_output_mutation=True)
 def get_model( model_id = "multi-qa-mpnet-base-dot-v1"):  
     return SentenceTransformer(model_id)
