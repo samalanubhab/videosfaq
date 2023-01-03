@@ -42,13 +42,7 @@ def main():
     model=get_model()
     data,faiss_index=load_meta_index() 
     
-    if st.button("Start Recording"):
-	    with st.spinner("Recording..."):
-		    filename=record()
     
-    if st.button("Play Recording"):
-        play_record(filename)
-        
     user_query=st.text_area("Enter text", value="Default")
 
     submit=st.button("Submit")
