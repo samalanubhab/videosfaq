@@ -76,8 +76,17 @@ def main():
             i+=1
             st.write(i,".","Title of the video :",{data[id_]['title']}) 
             st.write("Matching text transcript :",data[id_]['text'])
-            st.write("Video URL to click :",data[id_]['url']+'&t='+str(int(data[id_]['start'])))           
-            st.video(data[id_]['url'],start_time=int(data[id_]['start']))
+            st.write("Video URL to click :",data[id_]['url']+'&t='+str(int(data[id_]['start'])))  
+            
+            width = st.sidebar.slider(
+            label="Width", min_value=0, max_value=100, value=DEFAULT_WIDTH, format="%d%%")
+
+            width = max(width, 0.01)
+            side = max((100 - width) / 2, 0.01)
+
+            _, container, _ = st.columns([side, width, side])
+            container.video(data[id_]['url'],start_time=int(data[id_]['start']))
+#             st.video()
             st.write('\n\n')
     else:
         st.write("Please enter your query or text in above box ")
