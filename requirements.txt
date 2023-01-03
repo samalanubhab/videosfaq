@@ -2,5 +2,6 @@ streamlit==1.14.0
 faiss-cpu==1.7.2
 sentence-transformers==2.2.2
 ffmpeg
-git+https://github.com/streamproc/MediaStreamRecorder.git#egg=MediaStreamRecorder
+git+https://github.com/mifi/mediastreamrecorder.git
+
 
