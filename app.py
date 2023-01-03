@@ -28,7 +28,7 @@ st.markdown("""<nav class="navbar navbar-expand-lg navbar-dark" style="backgroun
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto">
-      <li class="nav-item active" style="font-size: 60px;">
+      <li class="nav-item active" style="font-size: 40px;">
         <a class="nav-link" href="#">Query Based Video Retrieval System</a>
       </li>      
     </ul>
