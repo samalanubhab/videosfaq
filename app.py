@@ -20,15 +20,9 @@ st.markdown("""
       <li class="nav-item active">
         <a class="nav-link disabled" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://youtube.com/dataprofessor" target="_blank">YouTube</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://twitter.com/thedataprof" target="_blank">Twitter</a>
-      </li>
     </ul>
   </div>
-</nav> 
+</nav>  
 """, unsafe_allow_html=True)
 
 @st.cache(allow_output_mutation=True)
