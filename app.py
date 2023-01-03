@@ -18,7 +18,7 @@ st.markdown("""
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link disabled" href="#">Query Based Video Retrieval System <span class="sr-only">(current)</span></a>
+        <a class="nav-link disabled" style="margin: 0 auto; display:block; text-align: center" href="#">Query Based Video Retrieval System <span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>
