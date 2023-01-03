@@ -98,7 +98,8 @@ def main():
         for id_ in I.flatten().tolist():
 
             i+=1
-            st.write(i,".","Title of the video :",{data[id_]['title']}) 
+            st.write(i,".","Title of the video :",{data[id_]['title']},'style={"font-size": "200%"}') 
+
             st.write("Matching text transcript :",data[id_]['text'])
             st.write("Video URL to click :",data[id_]['url']+'&t='+str(int(data[id_]['start'])))  
             
