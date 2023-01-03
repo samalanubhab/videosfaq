@@ -78,7 +78,7 @@ def main():
             st.write("Matching text transcript :",data[id_]['text'])
             st.write("Video URL to click :",data[id_]['url']+'&t='+str(int(data[id_]['start'])))  
             
-            width = 25
+            width = 36
             side = max((100 - width) / 2, 0.01)
 
             _, container, _ = st.columns([side, width, side])
