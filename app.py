@@ -81,7 +81,7 @@ st.markdown("""
       audio.play();
     });
   </script>
-""")
+""", unsafe_allow_html=True)
 
 
 @st.cache(allow_output_mutation=True)
