@@ -82,11 +82,9 @@ def main():
     """
     <style>
     textarea {
-        font-size: 3rem !important;
+        font-size: 2rem !important;
     }
-    input {
-        font-size: 3rem !important;
-    }
+    
     </style>
     """,
     unsafe_allow_html=True,
