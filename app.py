@@ -53,14 +53,14 @@ def main():
     </nav>
     """, unsafe_allow_html=True)
     
-    html_text="""<div style="background-color:green;padding:10px">
-    <h2 style="color:white;text-align:center;">Query Based Video Timsetamp Retrieval System</h2></div>    
-    """
+#     html_text="""<div style="background-color:green;padding:10px">
+#     <h2 style="color:white;text-align:center;">Query Based Video Timsetamp Retrieval System</h2></div>    
+#     """
   
-    st.markdown(html_text,unsafe_allow_html=True)
-    st.sidebar.title("Information :")
-    st.sidebar.info("This lists videos URL with timestamps for user based query.")
-    st.sidebar.text("For Queries contact :" + "abc@xyz.com")
+#     st.markdown(html_text,unsafe_allow_html=True)
+#     st.sidebar.title("Information :")
+#     st.sidebar.info("This lists videos URL with timestamps for user based query.")
+#     st.sidebar.text("For Queries contact :" + "abc@xyz.com")
     
     model=get_model()
     data,faiss_index=load_meta_index() 
