@@ -37,6 +37,91 @@ st.markdown("""<nav class="navbar navbar-expand-lg navbar-dark" style="backgroun
 </nav>						
 """, unsafe_allow_html=True)
 
+st.markdown(""" 
+<button id="record-button">Start Recording</button>
+<button id="stop-button" disabled>Stop Recording</button>
+<button id="save-button" disabled>Save Recording</button>
+
+<script>
+  var recordButton = document.getElementById('record-button');
+  var stopButton = document.getElementById('stop-button');
+  var saveButton = document.getElementById('save-button');
+  var mediaRecorder;
+  var audioChunks = [];
+
+  recordButton.addEventListener('click', function() {
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.start();
+
+      recordButton.disabled = true;
+      stopButton.disabled = false;
+      saveButton.disabled = true;
+
+      mediaRecorder.addEventListener('dataavailable', function(event) {
+        audioChunks.push(event.data);
+      });
+    });
+  });
+
+  stopButton.addEventListener('click', function() {
+    mediaRecorder.stop();
+
+    recordButton.disabled = false;
+    stopButton.disabled = true;
+    saveButton.disabled = false;
+  });
+
+  saveButton.addEventListener('click', function() {
+    // Convert the audio to an MP3 file
+    function convertToMP3() {
+      // Create an AudioContext
+      var audioContext = new AudioContext();
+
+      // Create an OfflineAudioContext
+      var offlineAudioContext = new OfflineAudioContext(1, audioChunks.length, 44100);
+
+      // Create a Blob from the audio chunks
+      var audioBlob = new Blob(audioChunks);
+
+      // Create an Audio object from the Blob
+      var audio = new Audio();
+      audio.src = URL.createObjectURL(audioBlob);
+
+      // Decode the audio data
+      audioContext.decodeAudioData(audioBlob, function(buffer) {
+        // Create a buffer source
+        var source = offlineAudioContext.createBufferSource();
+        source.buffer = buffer;
+
+        // Connect the source to the offline audio context
+        source.connect(offlineAudioContext.destination);
+
+        // Start the source
+        source.start();
+
+        // Render the offline audio context
+        offlineAudioContext.startRendering().then(function(renderedBuffer) {
+          // Create a Blob from the rendered audio
+          var renderedBlob = new Blob([renderedBuffer], { type: "audio/mpeg" });
+
+          // Create an object URL for the rendered audio
+          var url = URL.createObjectURL(renderedBlob);
+
+          // Create an anchor element and set the object URL as the href
+          var a = document.createElement("a");
+          a.href = url;
+          a.download = "recording.mp3";
+          a.click();
+        });
+      });
+    }
+</script>
+   
+
+
+""",unsafe_allow_html=True)
+
 @st.cache(allow_output_mutation=True)
 def get_model( model_id = "multi-qa-mpnet-base-dot-v1"):  
     return SentenceTransformer(model_id)
@@ -59,6 +144,7 @@ def vector_search(query,model,index,num_results=3):
   D,I =index.search(np.array(vector).astype("float32"),k=num_results)
 
   return D,I
+
 
     
 def main():
