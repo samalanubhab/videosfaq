@@ -83,7 +83,7 @@ def main():
     data,faiss_index=load_meta_index() 
     
    
-    user_query=st.text_area("Enter text", value="Default")
+    user_query=st.text_area("Enter text", value="Default",style='border-radius: 10px; background-color: #eeeeee;')
     # Add css to make text bigger
     st.markdown(
     """
