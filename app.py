@@ -65,19 +65,6 @@ def vector_search(query,model,index,num_results=3):
 
 
 
-recorder = MediaStreamRecorder(stream=None, type='audio', mimeType='audio/webm')
-
-def start_recording():
-    recorder.start()
-    return "Started recording"
-
-def stop_recording():
-    recorder.stop()
-    recorder.stream.stop()
-    return "Stopped recording"
-
-st.button("Start recording", start_recording)
-st.button("Stop recording", stop_recording)
     
 def main():
     
