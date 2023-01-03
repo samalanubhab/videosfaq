@@ -78,11 +78,7 @@ def main():
             st.write("Matching text transcript :",data[id_]['text'])
             st.write("Video URL to click :",data[id_]['url']+'&t='+str(int(data[id_]['start'])))  
             
-            DEFAULT_WIDTH = 80
-            width = st.sidebar.slider(
-            label="Width", min_value=0, max_value=100, value=DEFAULT_WIDTH, format="%d%%")
-
-            width = max(width, 0.01)
+            width = 100
             side = max((100 - width) / 2, 0.01)
 
             _, container, _ = st.columns([side, width, side])
