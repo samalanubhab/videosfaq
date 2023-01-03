@@ -120,7 +120,7 @@ st.markdown("""
    
 
 
-""",unsafe_allow_html=True)
+""")
 
 @st.cache(allow_output_mutation=True)
 def get_model( model_id = "multi-qa-mpnet-base-dot-v1"):  
