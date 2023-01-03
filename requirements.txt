@@ -2,8 +2,7 @@ streamlit==1.14.0
 faiss-cpu==1.7.2
 sentence-transformers==2.2.2
 PyAudio
-
 streamlit_bokeh_events
-bokeh==2.4.3
+bokeh
 
 
