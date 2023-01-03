@@ -84,38 +84,10 @@ def main():
     model=get_model()
     data,faiss_index=load_meta_index() 
     
-    stt_button = Button(label="Record", width=100)
-    stt_button.js_on_event("button_click", CustomJS(code="""
-    var recognition = new webkitSpeechRecognition();
-    recognition.continuous = true;
-    recognition.interimResults = true;
- 
-    recognition.onresult = function (e) {
-        var value = "";
-        for (var i = e.resultIndex; i < e.results.length; ++i) {
-            if (e.results[i].isFinal) {
-                value += e.results[i][0].transcript;
-            }
-        }
-        if ( value != "") {
-            document.dispatchEvent(new CustomEvent("GET_TEXT", {detail: value}));
-        }
-    }
-    recognition.start();
-    """))
+    from bokeh.models.widgets import Button
 
-    result = streamlit_bokeh_events(
-    stt_button,
-    events="GET_TEXT",
-    key="listen",
-    refresh_on_update=False,
-    override_height=75,
-    debounce_time=0)
-
-    if result:
-        st.write("Yayyyy")
-        if "GET_TEXT" in result:
-            st.write(result.get("GET_TEXT"))
+    button = Button(label="Click me")
+    button.js_on_event("button_click", CustomJS(code="console.log('Hello, world!')"))
 
     
     user_query=st.text_area("Enter text", value="Default")
