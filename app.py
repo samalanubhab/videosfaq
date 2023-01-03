@@ -117,7 +117,7 @@ def main():
     if user_query!='Default' and submit:
         D,I=vector_search([user_query],model,faiss_index,3)
         i=0
-        st.markdown('**Below are your top 3 results**')
+        st.markdown('**Below are your top 3 results :- **\n\n')
         for id_ in I.flatten().tolist():
 
             i+=1
