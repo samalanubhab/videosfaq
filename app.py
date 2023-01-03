@@ -133,7 +133,7 @@ def main():
 
             st.write('\n\n')
     else:
-        st.write("Please enter your query or text in above box ")
+        pass
 
 if __name__== "__main__":
     main()
