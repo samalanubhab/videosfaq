@@ -6,6 +6,14 @@ import streamlit as st
 from sentence_transformers import SentenceTransformer
 
 st.set_page_config(layout="wide")
+st.markdown("""
+<style>
+.big-font {
+    font-size:300px !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 col1, col2, col3 = st.columns([1,11,1])
 
 with col1:
