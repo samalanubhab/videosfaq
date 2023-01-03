@@ -27,14 +27,14 @@ st.markdown("""
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse mx-auto" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active" >
-        <a class="nav-link disabled" href="#">Query Based Video Retrieval System <span class="sr-only">(current)</span></a>
-      </li>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav justify-content-center">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Query Based Video Retrieval System</a>
+      </li>      
     </ul>
   </div>
-</nav> 	
+</nav>
 """, unsafe_allow_html=True)
 
 @st.cache(allow_output_mutation=True)
