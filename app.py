@@ -37,50 +37,52 @@ st.markdown("""<nav class="navbar navbar-expand-lg navbar-dark" style="backgroun
 </nav>						
 """, unsafe_allow_html=True)
 
-st.markdown(""" 
-<button id="record-button">Start Recording</button>
-<button id="stop-button" disabled>Stop Recording</button>
-<button id="play-button" disabled>Play</button>
+import streamlit as st
 
-<script>
-  var recordButton = document.getElementById('record-button');
-  var stopButton = document.getElementById('stop-button');
-  var playButton = document.getElementById('play-button');
-  var mediaRecorder;
-  var audioChunks = [];
+st.markdown("""
+  <button id="record-button">Start Recording</button>
+  <button id="stop-button" disabled>Stop Recording</button>
+  <button id="play-button" disabled>Play</button>
 
-  recordButton.addEventListener('click', function() {
-    navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
-      mediaRecorder = new MediaRecorder(stream);
-      mediaRecorder.start();
+  <script>
+    var recordButton = document.getElementById('record-button');
+    var stopButton = document.getElementById('stop-button');
+    var playButton = document.getElementById('play-button');
+    var mediaRecorder;
+    var audioChunks = [];
 
-      recordButton.disabled = true;
-      stopButton.disabled = false;
-      playButton.disabled = true;
+    recordButton.addEventListener('click', function() {
+      navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.start();
 
-      mediaRecorder.addEventListener('dataavailable', function(event) {
-        audioChunks.push(event.data);
+        recordButton.disabled = true;
+        stopButton.disabled = false;
+        playButton.disabled = true;
+
+        mediaRecorder.addEventListener('dataavailable', function(event) {
+          audioChunks.push(event.data);
+        });
       });
     });
-  });
 
-  stopButton.addEventListener('click', function() {
-    mediaRecorder.stop();
+    stopButton.addEventListener('click', function() {
+      mediaRecorder.stop();
 
-    recordButton.disabled = false;
-    stopButton.disabled = true;
-    playButton.disabled = false;
-  });
+      recordButton.disabled = false;
+      stopButton.disabled = true;
+      playButton.disabled = false;
+    });
 
-  playButton.addEventListener('click', function() {
-    var audioBlob = new Blob(audioChunks);
-    var audioUrl = URL.createObjectURL(audioBlob);
-    var audio = new Audio(audioUrl);
-    audio.play();
-  });
-</script>
+    playButton.addEventListener('click', function() {
+      var audioBlob = new Blob(audioChunks);
+      var audioUrl = URL.createObjectURL(audioBlob);
+      var audio = new Audio(audioUrl);
+      audio.play();
+    });
+  </script>
+""")
 
-""",unsafe_allow_html=True)
 
 @st.cache(allow_output_mutation=True)
 def get_model( model_id = "multi-qa-mpnet-base-dot-v1"):  
