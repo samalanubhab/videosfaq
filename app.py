@@ -28,17 +28,12 @@ st.markdown("""<nav class="navbar navbar-expand-lg navbar-dark" style="backgroun
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto">
-      <li class="nav-item active">
+      <li class="nav-item active" style="font-size: 20px;">
         <a class="nav-link" href="#">Query Based Video Retrieval System</a>
       </li>      
     </ul>
   </div>
 </nav>						
-<style>
-  .nav-item {
-    font-size: larger;
-  }
-</style>
 """, unsafe_allow_html=True)
 
 @st.cache(allow_output_mutation=True)
