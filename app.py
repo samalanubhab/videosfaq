@@ -95,7 +95,7 @@ def main():
     local_css("style.css")
     remote_css('https://fonts.googleapis.com/icon?family=Material+Icons')
 #     icon("search")
-
+    st.markdown('**Enter your search query below**')
     user_query = st.text_input("", "Default")
 #     button_clicked = st.button("OK")
 #     user_query=st.text_area("Enter text", value="Default")
