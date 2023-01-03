@@ -40,12 +40,12 @@ st.markdown("""<nav class="navbar navbar-expand-lg navbar-dark" style="backgroun
 st.markdown(""" 
 <button id="record-button">Start Recording</button>
 <button id="stop-button" disabled>Stop Recording</button>
-<button id="save-button" disabled>Save Recording</button>
+<button id="play-button" disabled>Play</button>
 
 <script>
   var recordButton = document.getElementById('record-button');
   var stopButton = document.getElementById('stop-button');
-  var saveButton = document.getElementById('save-button');
+  var playButton = document.getElementById('play-button');
   var mediaRecorder;
   var audioChunks = [];
 
@@ -56,7 +56,7 @@ st.markdown("""
 
       recordButton.disabled = true;
       stopButton.disabled = false;
-      saveButton.disabled = true;
+      playButton.disabled = true;
 
       mediaRecorder.addEventListener('dataavailable', function(event) {
         audioChunks.push(event.data);
@@ -69,55 +69,16 @@ st.markdown("""
 
     recordButton.disabled = false;
     stopButton.disabled = true;
-    saveButton.disabled = false;
+    playButton.disabled = false;
   });
 
-  saveButton.addEventListener('click', function() {
-    // Convert the audio to an MP3 file
-    function convertToMP3() {
-      // Create an AudioContext
-      var audioContext = new AudioContext();
-
-      // Create an OfflineAudioContext
-      var offlineAudioContext = new OfflineAudioContext(1, audioChunks.length, 44100);
-
-      // Create a Blob from the audio chunks
-      var audioBlob = new Blob(audioChunks);
-
-      // Create an Audio object from the Blob
-      var audio = new Audio();
-      audio.src = URL.createObjectURL(audioBlob);
-
-      // Decode the audio data
-      audioContext.decodeAudioData(audioBlob, function(buffer) {
-        // Create a buffer source
-        var source = offlineAudioContext.createBufferSource();
-        source.buffer = buffer;
-
-        // Connect the source to the offline audio context
-        source.connect(offlineAudioContext.destination);
-
-        // Start the source
-        source.start();
-
-        // Render the offline audio context
-        offlineAudioContext.startRendering().then(function(renderedBuffer) {
-          // Create a Blob from the rendered audio
-          var renderedBlob = new Blob([renderedBuffer], { type: "audio/mpeg" });
-
-          // Create an object URL for the rendered audio
-          var url = URL.createObjectURL(renderedBlob);
-
-          // Create an anchor element and set the object URL as the href
-          var a = document.createElement("a");
-          a.href = url;
-          a.download = "recording.mp3";
-          a.click();
-        });
-      });
-    }
+  playButton.addEventListener('click', function() {
+    var audioBlob = new Blob(audioChunks);
+    var audioUrl = URL.createObjectURL(audioBlob);
+    var audio = new Audio(audioUrl);
+    audio.play();
+  });
 </script>
-
 
 """,unsafe_allow_html=True)
 
