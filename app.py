@@ -78,12 +78,12 @@ def main():
             st.write("Matching text transcript :",data[id_]['text'])
             st.write("Video URL to click :",data[id_]['url']+'&t='+str(int(data[id_]['start'])))  
             
-            width = 50
+            width = 25
             side = max((100 - width) / 2, 0.01)
 
             _, container, _ = st.columns([side, width, side])
             container.video(data[id_]['url'],start_time=int(data[id_]['start']))
-#             st.video()
+
             st.write('\n\n')
     else:
         st.write("Please enter your query or text in above box ")
