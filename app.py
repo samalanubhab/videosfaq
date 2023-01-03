@@ -67,7 +67,7 @@ from bokeh.models import CustomJS
 from streamlit_bokeh_events import streamlit_bokeh_events
 
 stt_button = Button(label="Record", width=100)
-
+st.bokeh_chart(stt_button)
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
