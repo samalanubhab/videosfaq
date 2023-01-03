@@ -6,6 +6,18 @@ import streamlit as st
 from sentence_transformers import SentenceTransformer
 
 st.set_page_config(layout="wide")
+col1, col2, col3 = st.beta_columns([1,6,1])
+
+with col1:
+    st.image("https://i.imgflip.com/amucx.jpg")
+
+with col2:
+    st.write("")
+ 
+
+
+with col3:
+    st.write("")
 
 st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
 
