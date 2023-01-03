@@ -70,12 +70,14 @@ def main():
 
     if user_query!='Default' and submit:
         D,I=vector_search([user_query],model,faiss_index,3)
-
+        i=0
         for id_ in I.flatten().tolist():
+            i+=1
+            st.write(i)
             st.write("Title of the video :",{data[id_]['title']})
             st.write("Matching text transcript :",data[id_]['text'])
             st.write("Video URL to click :",data[id_]['url']+'&t='+str(int(data[id_]['start'])))
-            st.write('######################################################################')
+           
             st.video(data[id_]['url'],start_time=int(data[id_]['start']))
             st.write('\n\n')
     else:
