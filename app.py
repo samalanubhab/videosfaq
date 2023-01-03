@@ -62,6 +62,54 @@ def vector_search(query,model,index,num_results=3):
 
   return D,I
 
+import pyaudio
+import wave
+import threading
+
+p = pyaudio.PyAudio()
+
+# Define audio parameters
+format = pyaudio.paInt16
+channels = 1
+rate = 44100
+chunk = 1024
+
+def start_recording():
+    global waveFile
+    waveFile = wave.open("recording.wav", "wb")
+    waveFile.setnchannels(channels)
+    waveFile.setsampwidth(p.get_sample_size(format))
+    waveFile.setframerate(rate)
+
+    stream = p.open(format=format,
+                    channels=channels,
+                    rate=rate,
+                    input=True,
+                    input_device_index=0,
+                    frames_per_buffer=chunk)
+
+    # Start a thread to stream the audio
+    thread = threading.Thread(target=stream_audio, args=(stream,))
+    thread.start()
+
+def stop_recording():
+    stream.stop_stream()
+    stream.close()
+    waveFile.close()
+
+def stream_audio(stream):
+    while stream.is_active():
+        data = stream.read(chunk)
+        waveFile.writeframes(data)
+        st.audio(data, format='audio/wav', start_time=0)
+
+if st.button("Start Recording"):
+    start_recording()
+
+if st.button("Stop Recording"):
+    stop_recording()
+
+p.terminate()
 
 
     
