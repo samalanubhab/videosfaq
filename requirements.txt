@@ -4,6 +4,6 @@ sentence-transformers==2.2.2
 PyAudio
 
 streamlit_bokeh_events
-bokeh
+bokeh==2.4.3
 
 
