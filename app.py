@@ -62,62 +62,42 @@ def vector_search(query,model,index,num_results=3):
 
   return D,I
 
-import pyaudio
-import wave
-import threading
+from bokeh.models.widgets import Button
+from bokeh.models import CustomJS
+from streamlit_bokeh_events import streamlit_bokeh_events
 
-p = pyaudio.PyAudio()
-info = p.get_host_api_info_by_index(0)
-numdevices = info.get('deviceCount')
-st.write("Number of devices",numdevices)
-for i in range(0, numdevices):
-        if (p.get_device_info_by_host_api_device_index(0, i).get('maxInputChannels')) > 0:
-            print("Input Device id ", i, " - ", p.get_device_info_by_host_api_device_index(0, i).get('name'))
-            st.write("Input Device id ", i, " - ", p.get_device_info_by_host_api_device_index(0, i).get('name'))
+stt_button = Button(label="Record", width=100)
 
-# Define audio parameters
-format = pyaudio.paInt16
-channels = 1
-rate = 44100
-chunk = 1024
+stt_button.js_on_event("button_click", CustomJS(code="""
+    var recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+ 
+    recognition.onresult = function (e) {
+        var value = "";
+        for (var i = e.resultIndex; i < e.results.length; ++i) {
+            if (e.results[i].isFinal) {
+                value += e.results[i][0].transcript;
+            }
+        }
+        if ( value != "") {
+            document.dispatchEvent(new CustomEvent("GET_TEXT", {detail: value}));
+        }
+    }
+    recognition.start();
+    """))
 
-def start_recording():
-    global waveFile
-    waveFile = wave.open("recording.wav", "wb")
-    waveFile.setnchannels(channels)
-    waveFile.setsampwidth(p.get_sample_size(format))
-    waveFile.setframerate(rate)
+result = streamlit_bokeh_events(
+    stt_button,
+    events="GET_TEXT",
+    key="listen",
+    refresh_on_update=False,
+    override_height=75,
+    debounce_time=0)
 
-    stream = p.open(format=format,
-                    channels=channels,
-                    rate=rate,
-                    input=True,
-                 
-                    frames_per_buffer=chunk)
-
-    # Start a thread to stream the audio
-    thread = threading.Thread(target=stream_audio, args=(stream,))
-    thread.start()
-
-def stop_recording():
-    stream.stop_stream()
-    stream.close()
-    waveFile.close()
-
-def stream_audio(stream):
-    while stream.is_active():
-        data = stream.read(chunk)
-        waveFile.writeframes(data)
-        st.audio(data, format='audio/wav', start_time=0)
-
-if st.button("Start Recording"):
-    start_recording()
-
-if st.button("Stop Recording"):
-    stop_recording()
-
-p.terminate()
-
+if result:
+    if "GET_TEXT" in result:
+        st.write(result.get("GET_TEXT"))
 
     
 def main():
