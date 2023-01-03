@@ -4,6 +4,9 @@ import faiss,pickle
 import numpy as np
 import streamlit as st
 from sentence_transformers import SentenceTransformer
+from bokeh.models.widgets import Button
+from bokeh.models import CustomJS
+from streamlit_bokeh_events import streamlit_bokeh_events
 
 st.set_page_config(layout="wide")
 
@@ -62,13 +65,27 @@ def vector_search(query,model,index,num_results=3):
 
   return D,I
 
-from bokeh.models.widgets import Button
-from bokeh.models import CustomJS
-from streamlit_bokeh_events import streamlit_bokeh_events
 
-stt_button = Button(label="Record", width=100)
-st.bokeh_chart(stt_button)
-stt_button.js_on_event("button_click", CustomJS(code="""
+
+
+
+    
+def main():
+    
+#     html_text="""<div style="background-color:green;padding:10px">
+#     <h2 style="color:white;text-align:center;">Query Based Video Timsetamp Retrieval System</h2></div>    
+#     """
+  
+#     st.markdown(html_text,unsafe_allow_html=True)
+#     st.sidebar.title("Information :")
+#     st.sidebar.info("This lists videos URL with timestamps for user based query.")
+#     st.sidebar.text("For Queries contact :" + "abc@xyz.com")
+    
+    model=get_model()
+    data,faiss_index=load_meta_index() 
+    
+    stt_button = Button(label="Record", width=100)
+    stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = true;
@@ -87,7 +104,7 @@ stt_button.js_on_event("button_click", CustomJS(code="""
     recognition.start();
     """))
 
-result = streamlit_bokeh_events(
+    result = streamlit_bokeh_events(
     stt_button,
     events="GET_TEXT",
     key="listen",
@@ -95,25 +112,11 @@ result = streamlit_bokeh_events(
     override_height=75,
     debounce_time=0)
 
-if result:
-    if "GET_TEXT" in result:
-        st.write(result.get("GET_TEXT"))
+    if result:
+        st.write("Yayyyy")
+        if "GET_TEXT" in result:
+            st.write(result.get("GET_TEXT"))
 
-    
-def main():
-    
-#     html_text="""<div style="background-color:green;padding:10px">
-#     <h2 style="color:white;text-align:center;">Query Based Video Timsetamp Retrieval System</h2></div>    
-#     """
-  
-#     st.markdown(html_text,unsafe_allow_html=True)
-#     st.sidebar.title("Information :")
-#     st.sidebar.info("This lists videos URL with timestamps for user based query.")
-#     st.sidebar.text("For Queries contact :" + "abc@xyz.com")
-    
-    model=get_model()
-    data,faiss_index=load_meta_index() 
-    
     
     user_query=st.text_area("Enter text", value="Default")
     # Add css to make text bigger
