@@ -61,7 +61,29 @@ def vector_search(query,model,index,num_results=3):
   D,I =index.search(np.array(vector).astype("float32"),k=num_results)
 
   return D,I
+st.markdown("""<script src="https://cdn.webrtc-experiment.com/MediaStreamRecorder.js"> </script>
+<script>
+var mediaConstraints = {
+    audio: true
+};
 
+navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
+
+function onMediaSuccess(stream) {
+    var mediaRecorder = new MediaStreamRecorder(stream);
+    mediaRecorder.mimeType = 'audio/wav'; // check this line for audio/wav
+    mediaRecorder.ondataavailable = function (blob) {
+        // POST/PUT "Blob" using FormData/XHR2
+        var blobURL = URL.createObjectURL(blob);
+        document.write('<a href="' + blobURL + '">' + blobURL + '</a>');
+    };
+    mediaRecorder.start(3000);
+}
+
+function onMediaError(e) {
+    console.error('media error', e);
+}
+</script>""",unsafe_allow_html=True)
 from MediaStreamRecorder import MediaStreamRecorder
 
 recorder = MediaStreamRecorder(stream=None, type='audio', mimeType='audio/webm')
