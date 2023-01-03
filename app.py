@@ -23,9 +23,9 @@ st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootst
 
 st.markdown("""	<style>
   .nav-item {
-    font-size: 90px;
+    font-size: larger;
   }
-</style>												
+</style>										
 <nav class="navbar navbar-expand-lg navbar-dar8 style="background-color: #3498DB;">
   <a class="navbar-brand" href="https://home.kpmg/xx/en/home.html" target="_blank">KPMG</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
