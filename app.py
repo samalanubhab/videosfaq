@@ -4,7 +4,6 @@ import faiss,pickle
 import numpy as np
 import streamlit as st
 from sentence_transformers import SentenceTransformer
-from MediaStreamRecorder import MediaStreamRecorder
 
 st.set_page_config(layout="wide")
 
