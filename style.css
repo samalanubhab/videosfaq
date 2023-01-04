@@ -13,4 +13,6 @@ body {
 .stTextInput>div>div>input {
     color: #000000;
     border-radius: 8px;
+    height: 3em;
+    width: 20em;
 }
