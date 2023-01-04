@@ -25,6 +25,7 @@ body {
 
 .navbar-brand {
   position: relative;
-  float: right;
-  margin-right: 1em;
+  right: 0;
+  top: 0;
+  margin: 2em;
 }
