@@ -143,6 +143,11 @@ def main():
 if __name__== "__main__":
     for i in range(3):
     # Add the loop output to the table
-        st.markdown(f"| {i} | {i ** 2} | {i ** 3} |")
+        st.markdown("""
+        +-----+------------+
+    |  i  | square of i |
+    +-----+------------+
+        
+        """)
     main()
 
