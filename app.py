@@ -97,18 +97,7 @@ def main():
     local_css("style.css")
 
     st.markdown('**Enter your search query below**')
-    st.markdown("""
-    <style>
-    .stTextInput {
-        background-color: #fff;
-        border: 1px solid #ebebeb;
-        border-radius: 20px;
-        padding: 5px 10px;
-        font-size: 14px;
-        color: #000;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+
     user_query = st.text_input("", "Default")
 #     button_clicked = st.button("OK")
 #     user_query=st.text_area("Enter text", value="Default")
