@@ -72,6 +72,7 @@ def vector_search(query,model,index,num_results=3):
 
     
 def main():
+
     
 #     html_text="""<div style="background-color:green;padding:10px">
 #     <h2 style="color:white;text-align:center;">Query Based Video Timsetamp Retrieval System</h2></div>    
@@ -118,12 +119,14 @@ def main():
     submit=st.button("Submit")
 
     if user_query!='Default' and submit:
+
         D,I=vector_search([user_query],model,faiss_index,3)
         i=0
         st.markdown('**Below are your top 3 results**')
         st.write('\n\n')
-        data=[]
+        
         for id_ in I.flatten().tolist():
+        
 
             i+=1
             st.write(i,".","Title of the video :",{data[id_]['title']},style={"font-size": "500%"}) 
@@ -138,8 +141,7 @@ def main():
             container.video(data[id_]['url'],start_time=int(data[id_]['start']))
 
             st.write('\n\n')
-            data.append((i,data[id_]['text']))
-        st.table(data)    
+              
     else:
         pass
 
