@@ -96,13 +96,20 @@ def main():
 
     local_css("style.css")
     
-    col4, col5, col6 = st.columns([1.5,1,1.5])
+    col4, col5, col6 = st.columns([1.2,1,1.2])
+    col7,col8,col9=st.columns([1.2,1,1.2])
     with col4:
         pass
     with col5:
         st.markdown('**Enter your search query below**')
         user_query = st.text_input("", "Default")
-        submit=st.button("Submit")
+        
+        with col7:
+            pass
+        with col8:
+            submit=st.button("Submit")
+        with col9:
+            pass
     with col6:
         pass
     if user_query!='Default' and submit:
