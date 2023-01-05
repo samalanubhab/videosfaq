@@ -148,6 +148,6 @@ if __name__== "__main__":
     |  i  | square of i |
     +-----+------------+
         
-        """)
+        """,unsafe_allow_html=True)
     main()
 
