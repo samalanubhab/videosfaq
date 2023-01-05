@@ -95,27 +95,16 @@ def main():
 #         st.markdown(f'<i class="material-icons">{icon_name}</i>', unsafe_allow_html=True)
 
     local_css("style.css")
-
-    st.markdown('**Enter your search query below**')
-
-    user_query = st.text_input("", "Default")
-#     button_clicked = st.button("OK")
-#     user_query=st.text_area("Enter text", value="Default")
-#     # Add css to make text bigger
-#     st.markdown(
-#     """
-#     <style>
-#     textarea {
-#         font-size: 2rem !important;
-#     }
     
-#     </style>
-#     """,
-#     unsafe_allow_html=True,
-# )
-
-    submit=st.button("Submit")
-
+    col4, col5, col6 = st.columns([1,11,1])
+    with col4:
+        pass
+    with col5:
+        st.markdown('**Enter your search query below**')
+        user_query = st.text_input("", "Default")
+        submit=st.button("Submit")
+    with col6:
+        pass
     if user_query!='Default' and submit:
 
         D,I=vector_search([user_query],model,faiss_index,3)
