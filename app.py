@@ -122,6 +122,7 @@ def main():
         i=0
         st.markdown('**Below are your top 3 results**')
         st.write('\n\n')
+        data=[]
         for id_ in I.flatten().tolist():
 
             i+=1
@@ -137,6 +138,8 @@ def main():
             container.video(data[id_]['url'],start_time=int(data[id_]['start']))
 
             st.write('\n\n')
+            data.append((data[id_]['title'],data[id_]['text'],data[id_]['url']+'&t='+str(int(data[id_]['start']))))
+        st.table(data)    
     else:
         pass
 
