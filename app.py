@@ -141,28 +141,5 @@ def main():
         pass
 
 if __name__== "__main__":
-
-
-    # Create a table using the st.markdown function
-    st.markdown(
-        """
-        +-----+------------+-------------+
-        |  i  | square of i | cube of i   |
-        +-----+------------+-------------+
-        """
-    )
-
-    # Define a for loop
-    for i in range(10):
-        # Add the loop output to the table
-        st.markdown(f"| {i} | {i ** 2} | {i ** 3} |")
-
-    # Add a bottom border to the table
-    st.markdown(
-        """
-        +-----+------------+-------------+
-        """
-    )
-
     main()
 
