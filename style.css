@@ -2,9 +2,6 @@ body {
     color: #fff;
     background-color: #000000;
 }
-input[type="submit"] {
-    position: absolute;
-    left: 30px;
-}
+
 
 
