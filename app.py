@@ -102,7 +102,7 @@ def main():
         pass
     with col5:
         st.markdown('**Enter your search query below**')
-        user_query = st.text_input("", "Default")
+        user_query = st.text_input("", "")
         
         
         submit=st.button("Submit")
@@ -110,7 +110,7 @@ def main():
        
     with col6:
         pass
-    if user_query!='Default' and submit:
+    if user_query!='' and submit:
 
         D,I=vector_search([user_query],model,faiss_index,3)
         i=0
