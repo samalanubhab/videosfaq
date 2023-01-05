@@ -105,7 +105,7 @@ def main():
         user_query = st.text_input("", "Default")
         
         st.empty()
-        submit=st.sidebar.button("Submit")
+        submit=st.button("Submit")
         st.empty()
        
     with col6:
