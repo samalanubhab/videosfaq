@@ -139,9 +139,10 @@ def main():
 
             st.write('\n\n')
             data.append((data[id_]['title'],data[id_]['text'],data[id_]['url']+'&t='+str(int(data[id_]['start']))))
+         st.table(data)
     else:
         pass
-    st.table(data)
+    
 
 if __name__== "__main__":
     main()
