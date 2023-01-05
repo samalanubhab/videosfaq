@@ -10,10 +10,11 @@ body {
     width: 4em;
 }
 
-.stTextInput>div>div>input {
-    color: #000000;
+.stTextInput {
+    background-color: #fff;
+    border: 1px solid #ebebeb;
     border-radius: 20px;
-    width:200px;
-    
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #000;
 }
-
