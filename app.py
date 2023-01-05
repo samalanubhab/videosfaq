@@ -19,7 +19,7 @@ with col2:
 
 
 with col3:
-    st.markdown('<a href="https://home.kpmg/xx/en/home.html" target="_blank" style="position:absolute;top:0;right:0;background-color:#006696;color:white;border:none;padding:10px 15px;font-size:14px;font-weight:bold;text-decoration:none;cursor:pointer;border-radius:4px;" class="btn">Contact Us</a>',
+    st.markdown('<a href="https://home.kpmg/xx/en/home.html" target="_blank" style="position:absolute;top:0;right:0;background-color:#0070c0;color:white;border:none;padding:10px 15px;font-size:14px;font-weight:bold;text-decoration:none;cursor:pointer;border-radius:4px;" class="btn">Contact Us</a>',
     unsafe_allow_html=True,
 )
 
