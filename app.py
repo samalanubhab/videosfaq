@@ -19,7 +19,9 @@ with col2:
 
 
 with col3:
-    st.write("")
+    st.markdown('<a href="https://home.kpmg/xx/en/home.html" target="_blank" style="position:absolute;top:0;right:0;" class="btn btn-primary">Contact Us</a>',
+    unsafe_allow_html=True,
+)
 
 st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
 
