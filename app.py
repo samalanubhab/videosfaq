@@ -32,10 +32,7 @@ st.markdown("""<nav class="navbar navbar-expand-lg navbar-dark" style="backgroun
     <ul class="navbar-nav mx-auto">
       <li class="nav-item active" style="font-size: 50px;">
         <a class="nav-link" href="#">Query Based Video Retrieval System</a>
-      </li> 
-      <li class="nav-item contact-us-link">
-       <a class="nav-link" href="https://home.kpmg/xx/en/home.html" target="_blank">Contact Us</a>
-      </li>
+      </li>       
     </ul>
   </div>
 </nav>						
