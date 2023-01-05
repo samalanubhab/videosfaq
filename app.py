@@ -127,13 +127,10 @@ def main():
 
             i+=1
             st.write(i,".","Title of the video :",{data[id_]['title']},style={"font-size": "500%"}) 
-
             st.write("Matching text transcript :",data[id_]['text'])
-            st.write("Video URL to click :",data[id_]['url']+'&t='+str(int(data[id_]['start'])))  
-            
+            st.write("Video URL to click :",data[id_]['url']+'&t='+str(int(data[id_]['start'])))             
             width = 36
             side = max((100 - width) / 2, 0.01)
-
             _, container, _ = st.columns([side, width, side])
             container.video(data[id_]['url'],start_time=int(data[id_]['start']))
 
