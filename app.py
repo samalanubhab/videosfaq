@@ -104,8 +104,8 @@ def main():
         st.markdown('**Enter your search query below**')
         user_query = st.text_input("", "Default")
         
-        with st.center():
-            submit=st.button("Submit")
+        
+        submit=st.button("Submit")
         
        
     with col6:
