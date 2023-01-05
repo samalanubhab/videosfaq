@@ -96,7 +96,7 @@ def main():
 
     local_css("style.css")
     
-    col4, col5, col6 = st.columns([1,5,1])
+    col4, col5, col6 = st.columns([5,1,5])
     with col4:
         pass
     with col5:
