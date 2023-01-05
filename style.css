@@ -2,9 +2,13 @@ body {
     color: #fff;
     background-color: #000000;
 }
-.submit-button {
-    display: flex;
-    justify-content: center;
-  }
+.stButton>button {
+  color: #000000;
+  border-radius: 8px;
+  height: 3em;
+  width: 4em;
+  display: block;  /* Add this line to specify that the button should be displayed as a block element */
+  margin: auto;  /* Add this line to center the button horizontally */
+}
 
 
