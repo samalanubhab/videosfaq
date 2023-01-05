@@ -4,9 +4,9 @@ body {
 }
 .stButton>button {
   color: #000000;
-  border-radius: 8px;
+  border-radius: 20px;
   height: 3em;
-  width: 4em;
+  width: 5em;
   display: block;  /* Add this line to specify that the button should be displayed as a block element */
   margin: auto;  /* Add this line to center the button horizontally */
 }
