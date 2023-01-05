@@ -141,5 +141,21 @@ def main():
         pass
 
 if __name__== "__main__":
+    # Define a for loop
+    for i in range(3):
+        # Write the output of the loop to the main body of the app
+        st.write(f"i = {i}")
+
+    # Create a table using the st.markdown function
+    st.markdown(
+        """
+        | i |
+        | - |
+        """
+    )
+
+    # Add the loop output to the table
+    for i in range(3):
+        st.markdown(f"| {i} |")
     main()
 
