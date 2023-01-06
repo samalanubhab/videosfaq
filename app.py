@@ -21,8 +21,8 @@ with col2:
 with col3:
     st.markdown(
         '<div style="display: flex;">'
-        '<a href="https://home.kpmg/xx/en/home.html" target="_blank" style="margin-right: 10px; background-color:#0070c0;color:white;border:none;padding:10px 15px;font-size:14px;font-weight:bold;text-decoration:none;cursor:pointer;border-radius:4px;" class="btn">Contact Us</a>'
-        '<a href="https://www.kpmg.com/xx/en/about/index.html" target="_blank" style="margin-left: 10px; background-color:#0070c0;color:white;border:none;padding:10px 15px;font-size:14px;font-weight:bold;text-decoration:none;cursor:pointer;border-radius:4px;" class="btn">About Us</a>'
+        '<a href="https://home.kpmg/in/en/home/social.html" target="_blank" style="margin-right: 10px; background-color:#0070c0;color:white;border:none;padding:10px 15px;font-size:14px;font-weight:bold;text-decoration:none;cursor:pointer;border-radius:4px;" class="btn">Contact Us</a>'
+        '<a href="https://www.kpmg.com/xx/en/home.html" target="_blank" style="margin-left: 10px; background-color:#0070c0;color:white;border:none;padding:10px 15px;font-size:14px;font-weight:bold;text-decoration:none;cursor:pointer;border-radius:4px;" class="btn">About Us</a>'
         '</div>',
         unsafe_allow_html=True,
     )   
