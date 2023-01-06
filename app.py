@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer
 
 st.set_page_config(layout="wide")
 
-col1, col2, col3 = st.columns([1,11,2])
+col1, col2, col3 = st.columns([1,11,4])
 
 with col1:
     st.image("https://assets.kpmg/is/image/kpmg/kpmg-logo-1")
